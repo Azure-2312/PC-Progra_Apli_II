@@ -1,0 +1,52 @@
+<div class="app">
+  <header>
+    <h1 style = "color: black;">Clasificador de Tumores Cerebrales</h1>
+    <form (submit)="handleSubmit($event)">
+      <input type="file" accept="image/*" (change)="handleFileChange($event)" required />
+      <button type="submit">Clasificar Imagen</button>
+    </form>
+  </header>
+
+  <main class="content">
+    <section class="left">
+      <!-- Imagen Analizada -->
+      <div class="card" *ngIf="imageUrl">
+        <h2>Imagen Analizada</h2>
+        <img [src]="imageUrl" alt="MRI" class="preview-img" />
+      </div>
+
+      <!-- Resultado -->
+      <div class="card result-card" *ngIf="prediction">
+        <h2>Resultado</h2>
+        <p class="prediction">{{ prediction }}</p>
+      </div>
+    </section>
+
+    <section class="right">
+      <!-- Gráfico de Probabilidades -->
+      <div class="card" *ngIf="probs">
+        <h2>Gráfico de Probabilidades</h2>
+        <img [src]="graphUrl" alt="Gráfico" class="chart-img" />
+      </div>
+
+      <!-- Detalles por Clase -->
+      <div class="card" *ngIf="probs">
+        <h2>Detalles por Clase</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Clase</th>
+              <th>Probabilidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let entry of objectEntries">
+              <td>{{ entry[0] }}</td>
+              <td>{{ ($any(entry[1]) * 100).toFixed(2) }}%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
