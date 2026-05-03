@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./app.css']
 })
 export class AppComponent {
-  readonly API_URL = 'http://localhost:5000'; // URL del backend Flask
+  readonly API_URL = 'https://pc-progra-apli-ii.onrender.com'; // URL del backend Flask
   
   selectedFile: File | null = null;
   prediction: string = "";
