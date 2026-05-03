@@ -1,0 +1,16 @@
+# Entornos virtuales
+.venv/
+
+# Archivos compilados de Python
+__pycache__/
+*.pyc
+
+# Configuraciones del editor
+.vscode/
+
+# Datos pesados y generados
+dataset/
+entrenamiento.png
+
+# Archivos estáticos
+static/
